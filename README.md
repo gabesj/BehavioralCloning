@@ -13,14 +13,15 @@ Model Architecture
 ---
 I adopted an architecture based on [Nvidia's End-to-End Deep Learning for Self Driving Cars](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/).  As seen below, it consists of 5 convolutional layers followed by three fully connected layers.
 
-![Alt Text](https://developer.nvidia.com/blog/parallelforall/wp-content/uploads/2016/08/cnn-architecture-624x890.png)
 <img src = https://developer.nvidia.com/blog/parallelforall/wp-content/uploads/2016/08/cnn-architecture-624x890.png alt="drawing" width="400"/> 
 
 Before I could run my data through the Nvidia model, I needed to add a few layers to pre-process the images first.  Here is an original image:
-<img src = "./TestImages/precrop.jpg" alt="drawing" width="200"/>
+
+<img src = "./TestImages/precrop.jpg" alt="drawing" width="300"/>
 
 I cropped the images to remove the skyline and the area right in front of the car.  Here is an image after cropping:
-<img src = "./TestImages/postcrop.jpg" alt="drawing" width="200"/>
+
+<img src = "./TestImages/postcrop.jpg" alt="drawing" width="300"/>
 
 Then I resized the images to (66,200) because that is the input size that Nvidia used.  Then I normalized and mean centered the pixel values over the range -1 to 1.  The remaining layers were the Nvidia architecture.
 
@@ -29,7 +30,7 @@ Data Preparation and Augmentation
 ---
 The data from the simulator included three camera views - one from the center of the car, one from right side, and one from the left, along with a .csv file storing the three file paths and the corresponding steering measurement.  Here is an example of left, center, and right images:
 
-<img src = "./TestImages/left.jpg" alt="drawing" width="200"/> <img src = "./TestImages/center.jpg" alt="drawing" width="200"/> <img src = "./TestImages/right.jpg" alt="drawing" width="200"/>
+<img src = "./TestImages/left.jpg" alt="drawing" width="300"/> <img src = "./TestImages/center.jpg" alt="drawing" width="300"/> <img src = "./TestImages/right.jpg" alt="drawing" width="300"/>
 
 The left and right images were useful because, while the center image usually follows the center of the lane, the offset left and right images can be used to simulate driving off center with a need for correction.  Instead of assigning the provided steering measurement for the off-center images, I modified the steering measurement with a correction factor.  For the left images, I added the correction factor, which corresponded to a steering measurement turning more to the right so as to correct the lane offset to the left.  Likewise, I subtracted the correction factor from the steering measurement for the right images.  This provided useful data for recovery when the car gets off-center.  
 
