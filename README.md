@@ -56,3 +56,4 @@ And a guide to setting up an Anaconda environment can be found [here](https://gi
 
 This repo contains my model in `model.py`.  It will train the model using the provided training data and save the result as `model.h5`.  Running `python drive.py model.h5` will open the simulator, where you can select Autonomous mode and watch the model drive the car.  Running `python drive.py model.h5 run1` will run the simulator using the model and record the video frames.  Running `python video.py run1` will combine all those frames into a video titled `run1`.
 
+[](run1.mp4)
