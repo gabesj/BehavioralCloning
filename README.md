@@ -36,7 +36,7 @@ The left and right images were useful because, while the center image usually fo
 
 Then I took each image and created a copy of it flipped along the vertical axis.  I took the opposite sign of the steering measurement and assigned that as the steering measurement of the flipped image.  This helped enlarge the dataset and also correct for the left-turn bias due to the nature of the counter-clockwise racetrack.  Here is an example of a flipped image from the center camera shown above:
 
-<img src = "./TestImages/flipped_center.jpg" alt="drawing" width="200"/>
+<img src = "./TestImages/flipped_center.jpg" alt="drawing" width="300"/>
 
 After these augmentations, I had 48,216 images with corresponding steering measurements.
 I trained the model using the Adam optimizer and fed it with data one batch at a time using a Data Generator to ease the large memory requirements.
