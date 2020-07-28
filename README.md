@@ -14,13 +14,13 @@ Model Architecture
 I adopted an architecture based on [Nvidia's End-to-End Deep Learning for Self Driving Cars](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/).  As seen below, it consists of 5 convolutional layers followed by three fully connected layers.
 
 ![Alt Text](https://developer.nvidia.com/blog/parallelforall/wp-content/uploads/2016/08/cnn-architecture-624x890.png)
+<img src = https://developer.nvidia.com/blog/parallelforall/wp-content/uploads/2016/08/cnn-architecture-624x890.png alt="drawing" width="400"/> 
 
 Before I could run my data through the Nvidia model, I needed to add a few layers to pre-process the images first.  Here is an original image:
-![alt text][image1]
-
+<img src = "./TestImages/precrop.jpg" alt="drawing" width="200"/>
 
 I cropped the images to remove the skyline and the area right in front of the car.  Here is an image after cropping:
-![alt text][image2]
+<img src = "./TestImages/postcrop.jpg" alt="drawing" width="200"/>
 
 Then I resized the images to (66,200) because that is the input size that Nvidia used.  Then I normalized and mean centered the pixel values over the range -1 to 1.  The remaining layers were the Nvidia architecture.
 
